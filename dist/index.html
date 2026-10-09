@@ -98,6 +98,73 @@
       <p class="development-note">Hardware is in development. Images show design previews; final specifications and availability will be confirmed with you.</p>
     </section>
 
+    <!-- ===================== PERCEPTRON 3D VIEWER ===================== -->
+    <section class="viewer-section wrap" id="perceptron-3d" aria-labelledby="viewer-title">
+      <div class="section-heading">
+        <h2 id="viewer-title">Look around Perceptron</h2>
+        <span>Drag to orbit. Tap a marker to see what sits there.</span>
+      </div>
+
+      <script type="module" src="assets/model-viewer.min.js"></script>
+
+      <style>
+        .pv-card { position: relative; width: 100%; border-radius: 18px; overflow: hidden;
+          background: radial-gradient(120% 90% at 50% 20%, #23252a 0%, #111214 70%); border: 1px solid #2a2c31;
+          font-family: Inter, system-ui, sans-serif; color: #eceef1; }
+        .pv-card model-viewer { display: block; width: 100%; height: min(70vh, 600px);
+          --poster-color: transparent; --progress-bar-color: #e2561c; }
+        .pv-card model-viewer:focus { outline: none; }
+        .pv-bar { position: absolute; left: 12px; right: 12px; bottom: 12px; display: flex; flex-wrap: wrap;
+          gap: 8px; justify-content: center; pointer-events: none; }
+        .pv-bar button { pointer-events: auto; background: rgba(20,21,24,.85); color: #eceef1; border: 1px solid #2a2c31;
+          border-radius: 999px; padding: 7px 13px; font: 500 13px Inter, system-ui, sans-serif; cursor: pointer; }
+        .pv-bar button:hover { border-color: #e2561c; }
+        .pv-bar button.pv-on { background: #e2561c; border-color: #e2561c; color: #fff; }
+        .pv-spot { display: block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; padding: 0;
+          background: #e2561c; box-shadow: 0 0 0 4px rgba(226,86,28,.35); cursor: pointer; }
+        .pv-spot span { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); white-space: nowrap;
+          background: rgba(15,16,18,.92); border: 1px solid #2a2c31; color: #eceef1; font: 500 12px Inter, system-ui, sans-serif;
+          padding: 5px 9px; border-radius: 8px; pointer-events: none; }
+        .pv-spot.pv-back span, .pv-card.pv-nolabels .pv-spot { display: none; }
+        @media (max-width: 640px) {
+          .pv-card model-viewer { height: 58vh; }
+          .pv-bar { position: static; padding: 4px 12px 14px; }
+          .pv-bar button { padding: 6px 11px; font-size: 12px; }
+          .pv-spot span { display: none; }
+          .pv-spot:focus span { display: block; }
+        }
+      </style>
+
+      <div class="pv-card" id="pv-card">
+        <model-viewer id="pv-mv" src="assets/perceptron_preview.glb" alt="Interactive 3D model of the Perceptron research robot"
+          camera-controls touch-action="pan-y" auto-rotate auto-rotate-delay="2500" rotation-per-second="18deg"
+          camera-orbit="135deg 68deg auto" min-camera-orbit="auto 5deg auto" max-camera-orbit="auto 100deg auto"
+          shadow-intensity="1.1" shadow-softness="0.8" exposure="1.15" environment-image="neutral" tone-mapping="aces"
+          ar ar-modes="webxr scene-viewer quick-look">
+          <button class="pv-spot" slot="hotspot-cam" data-position="0.297m 0.177m 0m" data-normal="1m 0m 0m"><span>Front camera</span></button>
+          <button class="pv-spot" slot="hotspot-dock" data-position="0.323m 0.119m 0m" data-normal="1m 0m 0m"><span>Charging contacts</span></button>
+          <button class="pv-spot" slot="hotspot-handle" data-position="0m 0.165m -0.26m" data-normal="0m 0m -1m"><span>Carry handle</span></button>
+          <button class="pv-spot" slot="hotspot-rails" data-position="0.1m 0.251m -0.12m" data-normal="0m 1m 0m"><span>Accessory rails (LiDAR / camera)</span></button>
+          <button class="pv-spot" slot="hotspot-estop" data-position="-0.235m 0.254m 0m" data-normal="0m 1m 0m"><span>Emergency stop</span></button>
+          <button class="pv-spot" slot="hotspot-rear" data-position="-0.296m 0.209m 0m" data-normal="-1m 0m 0m"><span>Charge jack, USB-C, Ethernet</span></button>
+          <button class="pv-spot" slot="hotspot-rearcam" data-position="-0.297m 0.177m 0m" data-normal="-1m 0m 0m"><span>Rear camera</span></button>
+        </model-viewer>
+        <div class="pv-bar">
+          <button class="pv-view pv-on" data-orbit="135deg 68deg auto">3/4</button>
+          <button class="pv-view" data-orbit="90deg 80deg auto">Front</button>
+          <button class="pv-view" data-orbit="180deg 82deg auto">Side</button>
+          <button class="pv-view" data-orbit="270deg 80deg auto">Rear</button>
+          <button class="pv-view" data-orbit="90deg 0deg auto">Top</button>
+          <button id="pv-spin" class="pv-on">Auto-rotate</button>
+          <button id="pv-labels" class="pv-on">Labels</button>
+          <button id="pv-leds" class="pv-on">LEDs</button>
+        </div>
+      </div>
+
+      <script type="module" src="assets/viewer.js"></script>
+    </section>
+    <!-- =================== END PERCEPTRON 3D VIEWER =================== -->
+
     <section class="about-section" id="about" aria-labelledby="about-title">
       <div class="about-grid wrap">
         <div><div class="eyebrow">The lab behind the hardware</div><h2 id="about-title">Built together.<br><em>Made to build on.</em></h2></div>
