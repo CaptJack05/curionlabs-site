@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://curionlabs.in/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://curionlabs.in/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://curionlabs.in/assets/perceptron.jpg</image:loc>
+      <image:title>Perceptron Research Robot by Curion Labs</image:title>
+      <image:caption>Perceptron four-wheel ROS 2 and NVIDIA Jetson mobile research robot platform</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://curionlabs.in/assets/adaline.jpg</image:loc>
+      <image:title>ADALINE Motion 30D Control Board</image:title>
+      <image:caption>Integrated dual-channel motor driver and STM32 motion control board with ROS 2</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://curionlabs.in/assets/curion-mark.png</image:loc>
+      <image:title>Curion Labs Logo</image:title>
+    </image:image>
+  </url>
 </urlset>
