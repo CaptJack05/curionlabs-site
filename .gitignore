@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.zip
+.vercel/
+.netlify/
+__pycache__/
+qa/
